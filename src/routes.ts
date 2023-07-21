@@ -1,10 +1,12 @@
 import { Router } from "express";
+import { createAdminController } from "./useCases/adminUseCase/createAdminUseCase";
 
 const routes = Router()
 
-routes.get("/", (req, res) => {
+routes.post("/", async (req, res) => {
 
-    res.send("Hello")
+    await createAdminController.handle(req, res)
+
 })
 
 
