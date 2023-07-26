@@ -8,7 +8,6 @@ export class ShowProductsController {
     constructor(
         private ShowProductUseCase: ShowProductUseCase
     ) {
-
     }
 
     async handle(request: Request, response: Response) {
