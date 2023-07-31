@@ -4,6 +4,7 @@ import { createProductController } from "./useCases/productUseCase/createProduct
 import { deleteProductController } from "./useCases/productUseCase/deleteProductUseCase";
 import { showProductsController } from "./useCases/productUseCase/showProductUseCase";
 import { updateProductController } from "./useCases/productUseCase/updateProductUseCase";
+import { createUserController } from "./useCases/userUseCase/createUserUseCase";
 
 const routes = Router()
 
@@ -11,6 +12,15 @@ const routes = Router()
 routes.post("/admin/create", async (req, res) => {
     await createAdminController.handle(req, res)
 })
+
+//User routes
+
+routes.post("/user/create", async (req, res) => {
+
+    await createUserController.handle(req, res)
+
+})
+
 
 //products routes
 routes.post("/product/create", async (req, res) => {
