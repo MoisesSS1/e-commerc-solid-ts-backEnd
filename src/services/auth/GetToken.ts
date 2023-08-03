@@ -1,28 +1,32 @@
-import { NextFunction, Request, Response } from "express"
 import { auth } from "./config"
 import jwt from "jsonwebtoken"
-import { UserEntiti } from "../../entities/UserEntiti"
+import { LoginUserDTO } from "../../useCases/userUseCase/LoginUserUseCase/LoginUserDTO"
 
-interface User {
-    email: string,
-    password: string
-}
+export function GetToken({ email, password }: LoginUserDTO) {
 
-export function GetToken({ email, password }: UserEntiti) {
-
+    const userApp = { email, password }
     //recupera as informações de nome e senha do db
-    const user = { email: "moises@moises", password: "kb23ij45" }
+    const userDB = { email: "moises@moises", password: "kb23ij45" }
+
 
     //checa se nome e senha do db é o mesmo 
-    const checkUser = true
+    let checkUser;
+    if (userApp.email == userDB.email && userApp.password == userDB.password) {
 
-    if (checkUser) {
-
-        const token = jwt.sign({ user }, auth.secret)
-        //devolve o token se for verdadeiro
+        checkUser = true
+    } else {
+        checkUser = false
     }
 
+    //devolve o token se forem iguais, e false se não forem
+    if (checkUser) {
 
+        const token = jwt.sign({ userDB }, auth.secret)
+        //devolve o token se for verdadeiro
 
+        return token
+    }
 
+    //caso nome e senha não batam
+    return false
 } 
