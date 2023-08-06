@@ -8,29 +8,12 @@ import { createUserController } from "./useCases/userUseCase/createUserUseCase";
 import { loginUserUseController } from "./useCases/userUseCase/LoginUserUseCase";
 import { CheckToken } from "./middlewares/checkToken/CheckToken";
 
-
 const routes = Router()
 
 //admin routes
 routes.post("/admin/create", async (req, res) => {
     await createAdminController.handle(req, res)
 })
-
-
-
-//User public routes
-routes.post("/user/create", async (req, res) => {
-    await createUserController.handle(req, res)
-})
-routes.post("/user/login", async (req, res) => {
-    await loginUserUseController.handle(req, res)
-})
-//User private routes
-routes.get("/user/test", CheckToken, (req, res) => {
-    return res.send({ msg: "requisição" })
-})
-
-
 
 //products routes
 routes.post("/product/create", async (req, res) => {
@@ -46,6 +29,21 @@ routes.post("/product/update", async (req, res) => {
 
     await updateProductController.handle(req, res)
 })
+
+//User public routes
+routes.post("/user/create", async (req, res) => {
+    await createUserController.handle(req, res)
+})
+routes.post("/user/login", async (req, res) => {
+    await loginUserUseController.handle(req, res)
+})
+//User private routes
+routes.get("/user/test", CheckToken, (req, res) => {
+    return res.send({ msg: "requisição" })
+})
+
+
+//Card routes
 
 
 
