@@ -1,8 +1,9 @@
-import { showItemCartUseCase } from "./showItemCartUseCase";
-import { showCartUseController } from "./showItemCartUseController";
+import { ShowItemCartUseCase } from "./showItemCartUseCase"
+import { ShowCartUseController } from "./showItemCartUseController"
 
 
-const ShowItemCartUseCase = new showItemCartUseCase()
-const ShowCartUseController = new showCartUseController(ShowItemCartUseCase)
 
-export { ShowCartUseController, ShowItemCartUseCase }
+const showItemCartUseCase = new ShowItemCartUseCase()
+const showCartUseController = new ShowCartUseController(showItemCartUseCase)
+
+export { showCartUseController, showItemCartUseCase }

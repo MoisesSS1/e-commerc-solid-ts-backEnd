@@ -7,7 +7,7 @@ import { updateProductController } from "./useCases/productUseCase/updateProduct
 import { createUserController } from "./useCases/userUseCase/createUserUseCase";
 import { loginUserUseController } from "./useCases/userUseCase/LoginUserUseCase";
 import { CheckToken } from "./middlewares/checkToken/CheckToken";
-import { ShowCartUseController } from "./useCases/cartUseCase/showItemsCartUseCase";
+import { showCartUseController } from "./useCases/cartUseCase/showItemsCartUseCase";
 import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase";
 
 
@@ -48,7 +48,7 @@ routes.get("/user/test", CheckToken, (req, res) => {
 
 //Card routes
 routes.get("/cart", async (req, res) => {
-    await ShowCartUseController.handle(req, res)
+    await showCartUseController.handle(req, res)
 })
 
 routes.post("/cart/add", async (req, res) => {

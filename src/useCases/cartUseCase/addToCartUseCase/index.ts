@@ -1,5 +1,5 @@
 import { AddToCartUseController } from "./AddToCartUseController";
-import { AddToCartUseCase } from "./addToCartUseCase";
+import { AddToCartUseCase } from "./AddToCartUseCase";
 
 const addToCartUseCase = new AddToCartUseCase()
 const addToCartUseController = new AddToCartUseController(addToCartUseCase)

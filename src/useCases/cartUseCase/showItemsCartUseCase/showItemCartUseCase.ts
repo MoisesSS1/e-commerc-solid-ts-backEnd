@@ -1,8 +1,9 @@
-import { showCartDTO } from "./showCartDTO";
+import { ShowCartDTO } from "./showCartDTO";
 
-export class showItemCartUseCase {
+
+export class ShowItemCartUseCase {
   async execute() {
-    const findItemsDB: showCartDTO[] = [
+    const findItemsDB: ShowCartDTO[] = [
       {
         _id: "sasasa1",
         qtd: 3,

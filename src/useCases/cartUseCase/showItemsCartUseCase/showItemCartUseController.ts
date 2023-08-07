@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { showItemCartUseCase } from "./showItemCartUseCase";
+import { ShowItemCartUseCase } from "./showItemCartUseCase";
 
 
-export class showCartUseController {
+export class ShowCartUseController {
     constructor(
-        private showItemCartUseCase: showItemCartUseCase
+        private showItemCartUseCase: ShowItemCartUseCase
     ) {
 
     }
