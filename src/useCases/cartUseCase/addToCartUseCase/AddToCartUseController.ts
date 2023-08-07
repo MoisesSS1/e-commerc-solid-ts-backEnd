@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AddToCartUseCase } from "./addToCartUseCase";
+import { AddToCartUseCase } from "./AddToCartUseCase";
 
 
 export class AddToCartUseController {
