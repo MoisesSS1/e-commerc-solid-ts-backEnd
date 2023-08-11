@@ -1,12 +1,13 @@
 import { IUsersRepository } from "../../../repositories/IUsersRepository";
-import { GetToken } from "../../../services/auth/GetToken";
+import { IAuthUser } from "../../../services/auth/IAuthUser";
 import { IEncryptPassword } from "../../../services/password_encryption/IEncryptPassword";
 import { LoginUserDTO } from "./LoginUserDTO"
 
 export class LoginUserUseCase {
     constructor(
         private userRepository: IUsersRepository,
-        private encryptPassword: IEncryptPassword
+        private encryptPassword: IEncryptPassword,
+        private authUser: IAuthUser
     ) {
 
     }
@@ -22,7 +23,7 @@ export class LoginUserUseCase {
         const checkPassword = await this.encryptPassword.checkUser(password, user.password)
 
         if (checkPassword === true) {
-            const getToken = await GetToken(email, user._id)
+            const getToken = await this.authUser.GetToken(email, user._id)
             return getToken
         }
 

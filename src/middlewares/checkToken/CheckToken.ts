@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import jwt from "jsonwebtoken"
-import { auth } from "../../services/auth/config";
+import { auth } from "../../services/auth/implementations/config";
 
 export async function CheckToken(request: Request, response: Response, next: NextFunction) {
 

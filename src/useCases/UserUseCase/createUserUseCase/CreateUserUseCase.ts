@@ -24,9 +24,6 @@ export class CreateUserUseCase {
         let data = await new UserEntiti({ name, email, password })
         const generateHashPassword = await this.iencryptPassword.createHashUser(data.password)
         data.password = generateHashPassword
-
-        console.log(data)
-
         const saveUser = await this.usersRepository.save(data)
     }
 }
