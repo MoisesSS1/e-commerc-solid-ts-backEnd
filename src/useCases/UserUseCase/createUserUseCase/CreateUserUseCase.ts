@@ -1,5 +1,6 @@
 import { UserEntiti } from "../../../entities/UserEntiti";
 import { IUsersRepository } from "../../../repositories/IUsersRepository";
+import { IEncryptPassword } from "../../../services/password_encryption/IEncryptPassword";
 import { CreateUserDTO } from "./CreateUserDTO";
 
 
@@ -7,7 +8,8 @@ import { CreateUserDTO } from "./CreateUserDTO";
 export class CreateUserUseCase {
 
     constructor(
-        private usersRepository: IUsersRepository
+        private usersRepository: IUsersRepository,
+        private iencryptPassword: IEncryptPassword
     ) {
 
     }
@@ -19,8 +21,12 @@ export class CreateUserUseCase {
             throw new Error("Email já foi utilizado por outro usuário!")
         }
 
-        const newUser = await new UserEntiti({ name, email, password })
+        let data = await new UserEntiti({ name, email, password })
+        const generateHashPassword = await this.iencryptPassword.createHashUser(data.password)
+        data.password = generateHashPassword
 
-        const saveUser = await this.usersRepository.save(newUser)
+        console.log(data)
+
+        const saveUser = await this.usersRepository.save(data)
     }
 }

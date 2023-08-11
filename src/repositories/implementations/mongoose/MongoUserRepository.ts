@@ -9,8 +9,7 @@ export class MongoUserRepository implements IUsersRepository {
 
         const checkUser = await UserDB.find({ email: email })
 
-        const user = checkUser.toString()
-
+        const user = checkUser[0]
         return user
     }
 

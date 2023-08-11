@@ -15,6 +15,7 @@ export class LoginUserUseController {
 
         try {
             const checkPass = await this.LoginUserUseCase.execute(user)
+            console.log(checkPass)
 
             if (checkPass) {
                 return response.status(200).json({ message: "Usuário logado com sucesso!", data: checkPass })
@@ -23,8 +24,8 @@ export class LoginUserUseController {
                 return response.status(200).json({ message: "E-mail ou senha incorreto!", data: "err" })
             }
 
-        } catch (error) {
-            return response.status(400).json({ message: "Erro ao logar, tente novamente!" })
+        } catch (err: any) {
+            return response.status(400).json({ message: err.message })
         }
 
     }
