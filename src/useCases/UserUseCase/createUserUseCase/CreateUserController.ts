@@ -18,7 +18,7 @@ export class CreateUserController {
 
             return response.status(201).json({ message: "Usuário criado com sucesso!", data: createUser })
         } catch (error) {
-            return response.status(201).json({ message: "Erro ao criar conta, tente novamente!!" })
+            return response.status(404).json({ message: "Erro ao criar conta, tente novamente!!" })
 
         }
     }
