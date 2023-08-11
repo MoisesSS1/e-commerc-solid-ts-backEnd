@@ -17,9 +17,8 @@ export class CreateUserController {
             const createUser = await this.CreateUserUseCase.execute({ name, email, password })
 
             return response.status(201).json({ message: "Usuário criado com sucesso!", data: createUser })
-        } catch (error) {
-            return response.status(404).json({ message: "Erro ao criar conta, tente novamente!!" })
-
+        } catch (err: any) {
+            return response.status(404).json({ message: err.message })
         }
     }
 }
