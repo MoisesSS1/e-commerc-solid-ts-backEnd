@@ -15,8 +15,8 @@ export class ShowProductsController {
             const showProducts = await this.ShowProductUseCase.execute()
             return response.status(200).json({ data: showProducts })
 
-        } catch (error) {
-            return response.status(400).json({ message: "Erro ao buscar produtos no banco!!" })
+        } catch (error: any) {
+            return response.status(400).json({ message: error.message })
         }
     }
 }
