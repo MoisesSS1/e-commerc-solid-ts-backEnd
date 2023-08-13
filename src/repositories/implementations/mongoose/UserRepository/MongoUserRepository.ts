@@ -1,5 +1,5 @@
-import { User } from "../../../entities/UserEntiti";
-import { IUsersRepository } from "../../IUsersRepository";
+import { User } from "../../../../entities/UserEntiti";
+import { IUsersRepository } from "../../../IUsersRepository";
 import { UserDB } from "./UserSchema";
 
 export class MongoUserRepository implements IUsersRepository {

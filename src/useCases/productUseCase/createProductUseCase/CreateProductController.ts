@@ -12,16 +12,16 @@ export class CreateProductController {
 
     async handle(request: Request, response: Response) {
 
-        const { name, price, description, image } = request.body
+        const { name, price, description, image, category } = request.body
 
         try {
-            const newProduct = await this.CreateProductUseCase.execute({ name, price, description, image })
+            const newProduct = await this.CreateProductUseCase.execute({ name, price, description, image, category })
 
             return response.status(201).json({ message: "Produto criado com sucesso!", data: newProduct })
 
-        } catch (error) {
+        } catch (error: any) {
 
-            return response.status(400).json({ message: "Erro ao criar produto!" })
+            return response.status(400).json({ message: error.message })
         }
 
     }

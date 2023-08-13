@@ -1,17 +1,18 @@
 import { ProductEntiti } from "../../../entities/ProductEntiti";
+import { IProductRepository } from "../../../repositories/IProductRepository";
 import { CreateProductDTO } from "./CreateProductDTO";
 
 
 export class CreateProductUseCase {
 
-    async execute({ name, price, description, image }: CreateProductDTO) {
+    constructor(
+        private productRepository: IProductRepository
+    ) { }
 
-        //gerar o _id de forma aleatória, preferencia modular, metodo utilizado em outros lugares
-        const _id = "id do produto"
+    async execute({ name, price, description, image, category }: CreateProductDTO) {
 
-        const newProduct = await new ProductEntiti({ _id, name, price, description, image })
-
-        return newProduct
-
+        const newProduct = await new ProductEntiti({ name, price, description, image, category })
+        const saveProduct = await this.productRepository.createProduct(newProduct)
+        return saveProduct
     }
 }

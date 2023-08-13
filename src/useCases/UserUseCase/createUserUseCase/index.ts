@@ -1,4 +1,4 @@
-import { MongoUserRepository } from "../../../repositories/implementations/mongoose/MongoUserRepository";
+import { MongoUserRepository } from "../../../repositories/implementations/mongoose/UserRepository/MongoUserRepository";
 import { Bcrypt } from "../../../services/password_encryption/Implementations/Bcrypt";
 import { CreateUserController } from "./CreateUserController";
 import { CreateUserUseCase } from "./CreateUserUseCase";

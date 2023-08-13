@@ -1,4 +1,4 @@
-import { mongoose } from "./conn";
+import { mongoose } from "../conn";
 
 const UserSchema = new mongoose.Schema({
     email: String,
