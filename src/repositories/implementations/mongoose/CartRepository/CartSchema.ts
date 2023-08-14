@@ -1,8 +1,8 @@
 import { mongoose } from "../conn"
 
 const CartSchema = new mongoose.Schema({
-    _idUser: String,
-    _idProduct: String,
+    idUser: String,
+    idProduct: String,
     qtd: Number
 })
 

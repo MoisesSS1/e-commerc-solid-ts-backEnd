@@ -3,15 +3,16 @@ import { ICartRepository } from "../../../ICartRepository";
 import { CartDB } from "./CartSchema";
 
 export class MongooseCartRepository implements ICartRepository {
-    async addItemToCard({ _idProduct, _idUser, qtd }: CartEntiti): Promise<any> {
+
+    async addItemToCart({ idProduct, idUser, qtd }: CartEntiti): Promise<any> {
 
         const item = {
-            _idProduct,
-            _idUser,
+            idProduct,
+            idUser,
             qtd
         }
 
-        const checkItem: any = await CartDB.find({ _idProduct, _idUser })
+        const checkItem: any = await CartDB.find({ idProduct, idUser })
 
         if (!checkItem[0]) {
             const addItem = await CartDB.insertMany(item)
@@ -22,7 +23,15 @@ export class MongooseCartRepository implements ICartRepository {
             throw new Error("Item já foi adicionado, vá ao carrinho para alterar a quantidade!")
         }
 
-        const addQtdItem = await CartDB.findOneAndReplace({ _idProduct, _idUser }, item)
+        const addQtdItem = await CartDB.findOneAndReplace({ idProduct, idUser }, item)
         return
+    }
+
+    async showItemsCart(idUser: string): Promise<any> {
+
+        const itemsCart = await CartDB.find({ idUser: idUser })
+
+        console.log(itemsCart)
+        return itemsCart
     }
 }

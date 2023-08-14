@@ -1,17 +1,17 @@
 interface itemCart {
-    _idUser: string
-    _idProduct: string
+    idUser: string
+    idProduct: string
     qtd: number
 }
 
 export class CartEntiti {
-    _idProduct
-    _idUser
+    idProduct
+    idUser
     qtd
 
-    constructor({ _idUser, _idProduct, qtd }: itemCart) {
-        this._idUser = _idUser
+    constructor({ idUser, idProduct, qtd }: itemCart) {
+        this.idUser = idUser
         this.qtd = qtd
-        this._idProduct = _idProduct
+        this.idProduct = idProduct
     }
 }

@@ -1,5 +1,5 @@
 export interface addCartDTO {
-    _idProduct: string,
-    _idUser: string,
+    idProduct: string,
+    idUser: string,
     qtd: number
 }

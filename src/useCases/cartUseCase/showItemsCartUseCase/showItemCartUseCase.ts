@@ -1,23 +1,14 @@
-import { ShowCartDTO } from "./showCartDTO";
-
+import { ICartRepository } from "../../../repositories/ICartRepository";
 
 export class ShowItemCartUseCase {
-  async execute() {
-    const findItemsDB: ShowCartDTO[] = [
-      {
-        _id: "sasasa1",
-        qtd: 3,
-      },
-      {
-        _id: "sasasa1",
-        qtd: 3,
-      },
-      {
-        _id: "sasasa1",
-        qtd: 3,
-      },
-    ];
+  constructor(
+    private cartRepository: ICartRepository
+  ) {
 
+  }
+
+  async execute(_idUser: string) {
+    const findItemsDB = await this.cartRepository.showItemsCart(_idUser)
     return findItemsDB;
   }
 }

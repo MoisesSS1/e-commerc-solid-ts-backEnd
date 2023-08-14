@@ -1,5 +1,6 @@
 import { CartEntiti } from "../entities/CartEntiti";
 
 export interface ICartRepository {
-    addItemToCard({ _idProduct, _idUser, qtd }: CartEntiti): Promise<any>
+    addItemToCart({ idProduct, idUser, qtd }: CartEntiti): Promise<any>
+    showItemsCart(idUser: string): Promise<any>
 }
