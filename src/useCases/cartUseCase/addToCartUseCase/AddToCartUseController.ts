@@ -12,10 +12,10 @@ export class AddToCartUseController {
 
     async handle(request: Request, response: Response) {
 
-        const { idProduct, idUser, qtd } = request.body
+        const { idUser, idProduct, qtd } = request.body
 
         try {
-            const addItem = await this.AddToCardUseCase.execute({ idProduct, idUser, qtd })
+            const addItem = await this.AddToCardUseCase.execute({ idUser, idProduct, qtd })
             return response.status(201).json({ message: "Produto adicionado ao carrinho!", data: addItem })
         } catch (error: any) {
             return response.status(400).json({ message: error.message })

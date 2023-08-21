@@ -10,9 +10,15 @@ export class AddToCartUseCase {
 
     }
 
-    async execute({ idProduct, idUser, qtd }: addCartDTO) {
+    async execute({ idUser, idProduct, qtd }: addCartDTO) {
 
-        const addItem = await this.cartRepository.addItemToCart({ idProduct, idUser, qtd })
+        const data = {
+            idUser,
+            idProduct,
+            qtd
+        }
+
+        const addItem = await this.cartRepository.addItemToCart(data)
         //CONNEXÃO COM DB PARA ADICIONAR ITEM 
         return addItem
     }

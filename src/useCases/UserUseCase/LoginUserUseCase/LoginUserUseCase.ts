@@ -23,7 +23,7 @@ export class LoginUserUseCase {
         const checkPassword = await this.encryptPassword.checkUser(password, user.password)
 
         if (checkPassword === true) {
-            const getToken = await this.authUser.GetToken(email, user._id)
+            const getToken = await this.authUser.GetToken(email)
             return getToken
         }
 

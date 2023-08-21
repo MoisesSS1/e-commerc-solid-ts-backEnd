@@ -1,6 +1,6 @@
-import { CartEntiti } from "../entities/CartEntiti";
+import { addCartDTO } from "../useCases/cartUseCase/addToCartUseCase/AddToCartDTO";
 
 export interface ICartRepository {
-    addItemToCart({ idProduct, idUser, qtd }: CartEntiti): Promise<any>
+    addItemToCart({ idProduct, qtd }: addCartDTO): Promise<any>
     showItemsCart(idUser: string): Promise<any>
 }

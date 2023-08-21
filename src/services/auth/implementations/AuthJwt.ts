@@ -10,4 +10,9 @@ export class AuthJWT implements IAuthUser {
         return token
     }
 
+    async GetUserForToken(token: string): Promise<any> {
+        const data = await jwt.verify(token, auth.secret)
+        return data
+    }
+
 }

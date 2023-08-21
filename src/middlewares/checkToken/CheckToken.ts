@@ -9,7 +9,6 @@ export async function CheckToken(request: Request, response: Response, next: Nex
 
     try {
         const checkToken = await jwt.verify(token, auth.secret)
-        console.log(checkToken)
         next()
 
     } catch (error) {

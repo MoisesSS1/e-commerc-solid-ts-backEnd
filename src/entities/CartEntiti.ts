@@ -1,17 +1,24 @@
-interface itemCart {
-    idUser: string
-    idProduct: string
+export interface itemCart {
+    idProduct: string,
     qtd: number
 }
 
-export class CartEntiti {
-    idProduct
-    idUser
-    qtd
+interface Cart {
+    idUser: string,
+    idsProducts: [{
+        idProduct: string,
+        qtd: number
+    }
+    ]
+}
 
-    constructor({ idUser, idProduct, qtd }: itemCart) {
+
+export class CartEntiti {
+    idUser
+    idsProducts
+
+    constructor({ idUser, idsProducts }: Cart) {
         this.idUser = idUser
-        this.qtd = qtd
-        this.idProduct = idProduct
+        this.idsProducts = idsProducts
     }
 }
