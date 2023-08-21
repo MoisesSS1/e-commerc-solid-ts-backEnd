@@ -1,16 +1,16 @@
 import { ICartRepository } from "../../../repositories/ICartRepository";
-import { addCartDTO } from "./AddToCartDTO";
-
+import { IAuthUser } from "../../../services/auth/IAuthUser";
 
 export class AddToCartUseCase {
 
     constructor(
-        private cartRepository: ICartRepository
+        private cartRepository: ICartRepository,
+        private authUser: IAuthUser
     ) {
 
     }
 
-    async execute({ idUser, idProduct, qtd }: addCartDTO) {
+    async execute({ idUser, idProduct, qtd }: any) {
 
         const data = {
             idUser,

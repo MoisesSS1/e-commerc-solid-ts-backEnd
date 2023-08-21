@@ -50,7 +50,7 @@ routes.get("/user/test", CheckToken, (req, res) => {
 routes.get("/cart", CheckToken, async (req, res) => {
     await showCartUseController.handle(req, res)
 })
-routes.post("/cart/add", async (req, res) => {
+routes.post("/cart/add", CheckToken, async (req, res) => {
     await addToCartUseController.handle(req, res)
 
 })
