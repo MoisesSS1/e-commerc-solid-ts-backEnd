@@ -20,13 +20,9 @@ export class AuthJWT implements IAuthUser {
 
     async ShowToken(request: Request): Promise<any> {
 
-
         const token: any = await request.headers.authorization?.replace("Bearer ", "").toString()
-
         const dataToken = await jwt.verify(token, auth.secret)
-
         return dataToken
-
     }
 
 }

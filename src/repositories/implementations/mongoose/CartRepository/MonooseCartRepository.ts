@@ -69,4 +69,15 @@ export class MongooseCartRepository implements ICartRepository {
 
         return dataReturn
     }
+
+    async deleteItem(idUser: string, idProduct: string): Promise<any> {
+
+        const chekItemExistInCart = await CartDB.updateOne({ idUser, "idsProducts.idProduct": idProduct }, { $pull: { "idsProducts": { idProduct } } })
+
+        if (chekItemExistInCart.modifiedCount === 0) {
+            throw new Error("Produto não esta no carrinho!")
+        }
+
+
+    }
 }

@@ -9,6 +9,7 @@ import { loginUserUseController } from "./useCases/userUseCase/LoginUserUseCase"
 import { CheckToken } from "./middlewares/checkToken/CheckToken";
 import { showCartUseController } from "./useCases/cartUseCase/showItemsCartUseCase";
 import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase";
+import { deleteItemCartUseController } from "./useCases/cartUseCase/deleteItemCart";
 
 
 const routes = Router()
@@ -52,7 +53,10 @@ routes.get("/cart", CheckToken, async (req, res) => {
 })
 routes.post("/cart/add", CheckToken, async (req, res) => {
     await addToCartUseController.handle(req, res)
+})
 
+routes.post("/cart/delete", CheckToken, async (req, res) => {
+    await deleteItemCartUseController.handle(req, res)
 })
 
 
