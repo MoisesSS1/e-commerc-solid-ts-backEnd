@@ -10,6 +10,7 @@ import { CheckToken } from "./middlewares/checkToken/CheckToken";
 import { showCartUseController } from "./useCases/cartUseCase/showItemsCartUseCase";
 import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase";
 import { deleteItemCartUseController } from "./useCases/cartUseCase/deleteItemCart";
+import { getAdressUseController } from "./useCases/DeliveryUseCase/getAdressUseCase";
 
 
 const routes = Router()
@@ -57,6 +58,11 @@ routes.post("/cart/add", CheckToken, async (req, res) => {
 
 routes.post("/cart/delete", CheckToken, async (req, res) => {
     await deleteItemCartUseController.handle(req, res)
+})
+
+//Delivery routes
+routes.post("/adress", async (req, res) => {
+    await getAdressUseController.handle(req, res)
 })
 
 
