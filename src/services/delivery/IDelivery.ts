@@ -7,6 +7,7 @@ export interface IgetAdress {
     uf: string,
     ibge: string,
     gia: string | undefined,
+    number: number | undefined
 }
 
 export interface IDelivery {

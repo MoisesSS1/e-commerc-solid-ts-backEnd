@@ -11,6 +11,7 @@ import { showCartUseController } from "./useCases/cartUseCase/showItemsCartUseCa
 import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase";
 import { deleteItemCartUseController } from "./useCases/cartUseCase/deleteItemCart";
 import { getAdressUseController } from "./useCases/DeliveryUseCase/getAdressUseCase";
+import { createOrderUseController } from "./useCases/orderUseCase/createOrderUseCase";
 
 
 const routes = Router()
@@ -65,6 +66,10 @@ routes.post("/adress", async (req, res) => {
     await getAdressUseController.handle(req, res)
 })
 
+//Orders routes
+routes.post("/orders/create", async (req, res) => {
+    await createOrderUseController.handle(req, res)
+})
 
 
 
