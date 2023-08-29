@@ -80,4 +80,10 @@ export class MongooseCartRepository implements ICartRepository {
 
 
     }
+
+    async clearCart(idUser: string): Promise<void> {
+        const returnDB = await CartDB.findOneAndUpdate({ idUser: idUser }, { $set: { "idsProducts": [] } })
+        console.log(returnDB)
+        return
+    }
 }

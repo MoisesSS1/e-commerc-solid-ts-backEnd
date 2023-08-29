@@ -1,10 +1,12 @@
 import { OrderEntiti } from "../../../entities/OrderEntiti";
+import { ICartRepository } from "../../../repositories/ICartRepository";
 import { IOrdersRepository } from "../../../repositories/IOrdersRepository";
 import { createOrderDTO } from "./CreateOrderDTO";
 
 export class CreateOrderUseCase {
     constructor(
-        private ordersRepository: IOrdersRepository
+        private ordersRepository: IOrdersRepository,
+        private cartRepository: ICartRepository
     ) {
 
     }
@@ -16,7 +18,6 @@ export class CreateOrderUseCase {
 
         //incluir +1 no ultimo pedido e adiciona ao objeto para ser salvo
         const numberOrderAdd = Number(lastOrder) + 1
-        console.log(lastOrder)
         const dataOrder = {
             number: numberOrderAdd,
             ...order
@@ -28,7 +29,10 @@ export class CreateOrderUseCase {
         //salva entidade order
         const saveOrder = await this.ordersRepository.createOrder(createOrder)
 
+
         //se salvar com sucesso, limpar itens do carrinho
+        const deleteItemsCart = await this.cartRepository.clearCart(order.infoItems.idUser)
+
 
 
         return
