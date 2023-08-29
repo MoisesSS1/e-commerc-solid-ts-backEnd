@@ -1,4 +1,3 @@
-import { CepResponse } from "correios-brasil/dist"
 
 export interface IgetAdress {
     cep: string,
