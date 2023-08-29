@@ -11,8 +11,6 @@ export class CreateOrderUseCase {
 
     async execute(order: createOrderDTO) {
 
-        console.log(order)
-
         //busca o ultimo pedido no banco
         const lastOrder = await this.ordersRepository.lastOrder()
 
@@ -29,6 +27,9 @@ export class CreateOrderUseCase {
 
         //salva entidade order
         const saveOrder = await this.ordersRepository.createOrder(createOrder)
+
+        //se salvar com sucesso, limpar itens do carrinho
+
 
         return
 

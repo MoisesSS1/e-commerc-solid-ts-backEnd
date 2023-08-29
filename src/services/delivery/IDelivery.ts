@@ -1,14 +1,17 @@
+import { CepResponse } from "correios-brasil/dist"
+
 export interface IgetAdress {
     cep: string,
     logradouro: string,
-    complemento: string | undefined,
+    complemento: string,
     bairro: string,
     localidade: string,
     uf: string,
     ibge: string,
-    gia: string | undefined,
-    number: number | undefined
+    gia: string,
+    number?: number
 }
+
 
 export interface IDelivery {
 
