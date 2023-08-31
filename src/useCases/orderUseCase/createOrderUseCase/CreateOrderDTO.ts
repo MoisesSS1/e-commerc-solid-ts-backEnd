@@ -1,9 +1,9 @@
-import { CartEntiti } from "../../../entities/CartEntiti"
-import { IDelivery } from "../../../services/delivery/IDelivery"
+import { ICart } from "../../../entities/CartEntiti"
+import { IgetAdress } from "../../../services/delivery/IDelivery"
 
 
 export interface createOrderDTO {
     total: number,
-    infoItems: CartEntiti
-    adress: IDelivery
+    infoItems: ICart
+    adress: IgetAdress
 }

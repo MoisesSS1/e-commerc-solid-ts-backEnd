@@ -3,7 +3,7 @@ export interface itemCart {
     qtd: number
 }
 
-interface Cart {
+export interface ICart {
     idUser: string,
     idsProducts: [{
         idProduct: string,
@@ -17,7 +17,7 @@ export class CartEntiti {
     idUser
     idsProducts
 
-    constructor({ idUser, idsProducts }: Cart) {
+    constructor({ idUser, idsProducts }: ICart) {
         this.idUser = idUser
         this.idsProducts = idsProducts
     }

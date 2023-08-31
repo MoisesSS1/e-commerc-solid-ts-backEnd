@@ -67,7 +67,7 @@ routes.post("/adress", async (req, res) => {
 })
 
 //Orders routes
-routes.post("/orders/create", async (req, res) => {
+routes.post("/orders/create", CheckToken, async (req, res) => {
     await createOrderUseController.handle(req, res)
 })
 
