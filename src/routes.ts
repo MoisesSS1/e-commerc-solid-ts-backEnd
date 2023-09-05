@@ -4,14 +4,14 @@ import { createProductController } from "./useCases/productUseCase/createProduct
 import { deleteProductController } from "./useCases/productUseCase/deleteProductUseCase";
 import { showProductsController } from "./useCases/productUseCase/showProductUseCase";
 import { updateProductController } from "./useCases/productUseCase/updateProductUseCase";
-import { createUserController } from "./useCases/userUseCase/createUserUseCase/index";
-import { loginUserUseController } from "./useCases/userUseCase/LoginUserUseCase/index";
 import { CheckToken } from "./middlewares/checkToken/CheckToken";
 import { showCartUseController } from "./useCases/cartUseCase/showItemsCartUseCase";
 import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase";
 import { deleteItemCartUseController } from "./useCases/cartUseCase/deleteItemCart";
 import { getAdressUseController } from "./useCases/DeliveryUseCase/getAdressUseCase";
 import { createOrderUseController } from "./useCases/orderUseCase/createOrderUseCase";
+import { createUserController } from "./useCases/userUseCase/createUserUseCase";
+import { loginUserUseController } from "./useCases/userUseCase/LoginUserUseCase";
 
 
 const routes = Router()
