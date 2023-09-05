@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { createAdminController } from "./useCases/adminUseCase/createAdminUseCase";
 import { createProductController } from "./useCases/productUseCase/createProductUseCase";
 import { deleteProductController } from "./useCases/productUseCase/deleteProductUseCase";
 import { showProductsController } from "./useCases/productUseCase/showProductUseCase";
@@ -10,8 +9,7 @@ import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase"
 import { deleteItemCartUseController } from "./useCases/cartUseCase/deleteItemCart";
 import { getAdressUseController } from "./useCases/DeliveryUseCase/getAdressUseCase";
 import { createOrderUseController } from "./useCases/orderUseCase/createOrderUseCase";
-import { createUserController } from "./useCases/userUseCase/createUserUseCase";
-import { loginUserUseController } from "./useCases/userUseCase/LoginUserUseCase";
+
 
 
 const routes = Router()
@@ -31,13 +29,7 @@ routes.post("/product/update", async (req, res) => {
     await updateProductController.handle(req, res)
 })
 
-//User public routes
-routes.post("/user/create", async (req, res) => {
-    await createUserController.handle(req, res)
-})
-routes.post("/user/login", async (req, res) => {
-    await loginUserUseController.handle(req, res)
-})
+
 //User private routes
 routes.get("/user/test", CheckToken, (req, res) => {
     return res.send({ msg: "requisição" })

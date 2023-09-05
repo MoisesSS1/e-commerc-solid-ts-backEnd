@@ -1,7 +1,7 @@
 import { IUsersRepository } from "../../../repositories/IUsersRepository";
 import { IAuthUser } from "../../../services/auth/IAuthUser";
 import { IEncryptPassword } from "../../../services/password_encryption/IEncryptPassword";
-import { LoginUserDTO } from "./LoginUserDTO"
+import { LoginUserDTO } from "./LoginUserDTO";
 
 export class LoginUserUseCase {
     constructor(
