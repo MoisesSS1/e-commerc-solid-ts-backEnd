@@ -16,11 +16,6 @@ import { loginUserUseController } from "./useCases/userUseCase/LoginUserUseCase"
 
 const routes = Router()
 
-//admin routes
-routes.post("/admin/create", async (req, res) => {
-    await createAdminController.handle(req, res)
-})
-
 //products routes
 routes.post("/product/create", async (req, res) => {
     await createProductController.handle(req, res)

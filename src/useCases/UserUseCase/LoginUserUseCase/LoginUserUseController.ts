@@ -4,7 +4,7 @@ import { LoginUserUseCase } from "./LoginUserUseCase";
 
 export class LoginUserUseController {
     constructor(
-        private LoginUserUseCase: LoginUserUseCase
+        private loginUserUseCase: LoginUserUseCase
     ) {
 
     }
@@ -14,7 +14,7 @@ export class LoginUserUseController {
         const user = request.body
 
         try {
-            const checkPass = await this.LoginUserUseCase.execute(user)
+            const checkPass = await this.loginUserUseCase.execute(user)
             if (checkPass) {
                 return response.status(200).json({ message: "Usuário logado com sucesso!", data: checkPass })
 

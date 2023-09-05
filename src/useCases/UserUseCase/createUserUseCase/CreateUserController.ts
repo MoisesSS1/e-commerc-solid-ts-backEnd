@@ -4,7 +4,7 @@ import { CreateUserUseCase } from "./CreateUserUseCase";
 
 export class CreateUserController {
     constructor(
-        private CreateUserUseCase: CreateUserUseCase
+        private createUserUseCase: CreateUserUseCase
     ) {
 
     }
@@ -14,7 +14,7 @@ export class CreateUserController {
         const { name, email, password } = request.body
 
         try {
-            const createUser = await this.CreateUserUseCase.execute({ name, email, password })
+            const createUser = await this.createUserUseCase.execute({ name, email, password })
 
             return response.status(201).json({ message: "Usuário criado com sucesso!", data: createUser })
         } catch (err: any) {
