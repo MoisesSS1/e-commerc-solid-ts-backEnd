@@ -25,5 +25,6 @@ export class CreateUserUseCase {
         const generateHashPassword = await this.iencryptPassword.createHashUser(data.password)
         data.password = generateHashPassword
         const saveUser = await this.usersRepository.save(data)
+        return
     }
 }
