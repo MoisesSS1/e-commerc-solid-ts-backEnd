@@ -9,9 +9,8 @@ import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase"
 import { deleteItemCartUseController } from "./useCases/cartUseCase/deleteItemCart";
 import { getAdressUseController } from "./useCases/DeliveryUseCase/getAdressUseCase";
 import { createOrderUseController } from "./useCases/orderUseCase/createOrderUseCase";
-import { loginUserUseController } from "./useCases/userUseCase/loginUserUseCase";
 import { createUserController } from "./useCases/userUseCase/createUserUseCase";
-
+import { loginUserUseController } from "./useCases/userUseCase/loginUserUseCase";
 
 
 const routes = Router()
