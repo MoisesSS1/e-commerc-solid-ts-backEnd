@@ -9,6 +9,8 @@ import { addToCartUseController } from "./useCases/cartUseCase/addToCartUseCase"
 import { deleteItemCartUseController } from "./useCases/cartUseCase/deleteItemCart";
 import { getAdressUseController } from "./useCases/DeliveryUseCase/getAdressUseCase";
 import { createOrderUseController } from "./useCases/orderUseCase/createOrderUseCase";
+import { loginUserUseController } from "./useCases/userUseCase/loginUserUseCase";
+import { createUserController } from "./useCases/userUseCase/createUserUseCase";
 
 
 
@@ -29,12 +31,13 @@ routes.post("/product/update", async (req, res) => {
     await updateProductController.handle(req, res)
 })
 
-
-//User private routes
-routes.get("/user/test", CheckToken, (req, res) => {
-    return res.send({ msg: "requisição" })
+//user routes
+routes.post("/user/login", async (req, res) => {
+    await createUserController.handle(req, res)
 })
-
+routes.post("/user/create", async (req, res) => {
+    await loginUserUseController.handle(req, res)
+})
 
 //Card routes
 routes.get("/cart", CheckToken, async (req, res) => {
