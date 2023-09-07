@@ -32,10 +32,10 @@ routes.post("/product/update", async (req, res) => {
 
 //user routes
 routes.post("/user/login", async (req, res) => {
-    await createUserUseController.handle(req, res)
+    await loginUserUseController.handle(req, res)
 })
 routes.post("/user/create", async (req, res) => {
-    await loginUserUseController.handle(req, res)
+    await createUserUseController.handle(req, res)
 })
 
 //Card routes
