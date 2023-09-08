@@ -11,6 +11,7 @@ import { getAdressUseController } from "./useCases/DeliveryUseCase/getAdressUseC
 import { createOrderUseController } from "./useCases/orderUseCase/createOrderUseCase";
 import { createUserUseController } from "./useCases/user2UseCase/createUserUseCase";
 import { loginUserUseController } from "./useCases/user2UseCase/loginUserUseCase";
+import { showOrdersUseController } from "./useCases/orderUseCase/showOrdersUseCase";
 
 
 const routes = Router()
@@ -58,6 +59,10 @@ routes.post("/adress", async (req, res) => {
 //Orders routes
 routes.post("/orders/create", CheckToken, async (req, res) => {
     await createOrderUseController.handle(req, res)
+})
+
+routes.get("/orders", CheckToken, async (req, res) => {
+    await showOrdersUseController.handle(req, res)
 })
 
 
