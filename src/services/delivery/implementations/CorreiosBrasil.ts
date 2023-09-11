@@ -7,7 +7,8 @@ export class CorreiosBrasil implements IDelivery {
     async getAdress(cep: string): Promise<IgetAdress> {
         const checkAdress: any = await consultarCep(cep)
 
-        if (checkAdress.erro === true) {
+        if (checkAdress.erro == "true") {
+
             throw new Error("Cep não encontrado!")
         }
         return checkAdress
